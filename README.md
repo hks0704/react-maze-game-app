@@ -1,73 +1,121 @@
-# React + TypeScript + Vite
+# 🎮 maze-game-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> React + TypeScript로 만든 미로찾기 게임
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 프로젝트 소개
 
-## React Compiler
+> 사용자가 미로를 탐색하며 목표 지점까지 도달하는 웹 게임입니다.
+> React 상태 관리와 게임 로직 설계를 연습하기 위해 제작했습니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ 기술 스택
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Frontend
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React
+* TypeScript
+* Tailwind CSS
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 상태 관리
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* useState
+
+---
+
+## ⚙️ 주요 기능
+
+* 🧩 게임 시작 / 재시작
+* 🎯 목표 지점 도달
+* ⏱️ 타이머 기능
+* 🧠 난이도 조절 (옵션)
+* 🎮 키보드 입력 / 클릭 이동
+
+---
+
+## 🧱 프로젝트 구조
+
+```bash
+src/
+├── components/     # UI 컴포넌트
+├── hooks/          # 커스텀 훅
+├── pages/          # 페이지 단위
+├── utils/          # 게임 로직
+├── types/          # 타입 정의
+└── App.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 핵심 로직 설명
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. 상태 관리
+
+```ts
+const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0 });
 ```
+
+### 2. 이동 로직
+
+* 방향키 입력 → 좌표 변경
+* 벽인지 체크 후 이동
+
+### 3. 렌더링 구조
+
+* 2차원 배열 기반 맵
+* Cell 컴포넌트로 분리
+
+---
+
+## 📷 실행 화면
+
+---
+
+## 🧪 실행 방법
+
+```bash
+# 설치
+npm install
+
+# 실행
+npm run dev
+```
+
+---
+
+## 📈 개선 예정 (TODO)
+
+* [ ] 점수 시스템 추가
+* [ ] 레벨 시스템
+* [ ] 모바일 대응
+* [ ] 사운드 효과
+
+---
+
+## 💡 트러블 슈팅
+
+### 문제 1: 상태 업데이트 지연
+
+* 원인: 비동기 state 업데이트
+* 해결: 함수형 업데이트 사용
+
+```ts
+setState(prev => ...)
+```
+
+---
+
+## 🧑‍💻 회고
+
+* 어려웠던 점
+* 배운 점
+* 다음에 개선할 점
+
+---
+
+## ✨ 기타
+
+* 포트폴리오 링크
+* 블로그 정리 링크
