@@ -1,4 +1,5 @@
 import { useMaze } from "../hooks/useMaze";
+import Timer from "./Timer";
 
 interface Props {
     size: number;
@@ -36,6 +37,7 @@ export default function MazeBoard({ size }: Props) {
                 </div>
             )}
 
+            <Timer isRunning={true} />
             <div 
             className="maze grid gap-[2px] justify-center mt-5"
             style={{
