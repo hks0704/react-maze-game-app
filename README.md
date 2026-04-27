@@ -1,4 +1,4 @@
-# 🎮 maze-game-app
+# 🎮 maze-game-app(수정중)
 
 > React + TypeScript로 만든 미로찾기 게임
 
